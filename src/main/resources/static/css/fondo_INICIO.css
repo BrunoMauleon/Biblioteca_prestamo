@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    font-family: 'Roboto', 'Sans serif';
+}
+
+.contenedor{
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.bg_animate{
+	width: 100%;
+    height: 100vh;
+    background: url('https://cdn.stocksnap.io/img-thumbs/960w/books-library_3CNOEZPLFX.jpg') center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.header_nav{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+
+.banner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.banner_title h2{
+    color: #fff;
+    font-size: 60px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.banner_title .iniciar{
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    display: inline-block;
+    background: black;
+    padding: 20px;
+}
+
+

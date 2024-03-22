@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head">
+		<meta charset="utf-8">
+
+</head>
+
+<body>
+	<br><br><br><br>
+	<div class="container">
+	  <div class="row">
+	      <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+	           <h1 class="text-center" th:text="${titulo}"></h1>
+	           <div class="card-body">
+	<form th:action="@{/prestamo/editar/{idPrestamo}(idPrestamo=${prestamos.idPrestamo})}" th:object="${prestamos}" method="POST">
+		<div class="form-group">
+            <label for="fechaPrestamo">Fecha de prestamo:</label>
+            <input type="date" class="form-control" id="fechaPrestamo" th:field="*{fechaPrestamo}"/>
+        </div>
+		<div class="form-group">
+            <label for="fecha_devolucion">Fecha de devolución:</label>
+            <input type="date" class="form-control" id="fecha_devolucion" th:field="*{fecha_devolucion}"/>
+        </div>
+		 <div class="box-footer"> 
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+					</form>
+
+	           </div></div></div></div>
+
+
+</body>
+
+</html>

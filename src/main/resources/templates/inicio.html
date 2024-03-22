@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head">
+	<meta charset="utf-8">
+</head>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../tools/bootstrap-5.2.3-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/navbar.css">
+	<title>Spring app</title>
+</head>
+
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<br><br><br><br>
+
+	<div class="py-4 ml-5 mr-5">
+		<div class="card bg-light">
+			<div class="card-header" th:text="${titulo}"></div>
+
+			<div class="card-body">
+				<h4 class="card-title">
+					<div style="display: inline-block;">
+						<a th:href="@{/libro/nuevo}" class="btn btn-dark" >Agregar libro</a>
+						<form action="/libro/tabla" method="get" style="display: inline-block;">
+							<button type="submit" class="btn btn-dark" style="float: right;">Buscar</button>
+							<select id="disponible" name="disponible" class="form-select" >
+								<option value="">Todos</option>
+								<option value="true">Disponibles</option>
+								<option value="false">No disponibles</option>
+							</select>
+						</form>
+					</div>
+
+				</h4>
+			</div>
+
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>ID libros</th>
+						<th>Titulo</th>
+						<th>Autor</th>
+						<th>Tipo</th>
+						<th>No de paginas</th>
+						<th>Disponible</th>
+						<th>Editar</th>
+						<th>Eliminar</th>
+					</tr>
+				</thead>
+
+
+				<tbody>
+					<tr th:each="l: ${libro}">
+						<td th:text="${l.id_libro}"></td>
+						<td th:text="${l.titulo}"></td>
+						<td th:text="${l.autor}"></td>
+						<td th:text="${l.tipo}"></td>
+
+						<td th:text="${l.noPaginas}"></td>
+						<td th:text="${l.disponible}"></td>
+
+
+						<td><a th:href="@{/libro/editar/{id_libro}(id_libro=${l.id_libro})}"
+								class="btn btn-secondary ">Editar</a></td>
+
+						<td><a  th:href="@{/libro/eliminar/} + ${l.id_libro}" class="btn btn-danger"
+								onclick="return confirm('¿Estás seguro de eliminar al empleado?');">Eliminar</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>
