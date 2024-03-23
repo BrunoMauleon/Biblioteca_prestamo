@@ -1,0 +1,30 @@
+en la ruta localhost:8080 tenemos la vista presentacion.html, al dar al boton INICIAR tenemos un navbar para ver los datos de libros usuarios, prestamos.
+
+*En http://localhost:8080/libro/tabla tenemos los datos de libro:
+
+Aquí encontraras: los datos del libro, el boton agregar libro y el boton buscar donde nos dira los libros ya sean dispoibles, no disponibles o todos ¿Como saber cuales son los disponibles y no? con la columna Disponible true o false, los true son los disponibles y los false son los no disponibles, también tiene el botón editar y eliminar.
+
+*En http://localhost:8080/usuario/tabla tenemos los datos del usuario:
+
+Aquí encontraras: los datos del usuario, el boton agregar usuario, editar y eliminar.
+
+*En http://localhost:8080/prestamo/tabla tenemos los datos del prestamo:
+
+Aquí encontraras: los datos del prestamo conformado ID prestamo, fecha de entrega, fecha de devolución, ID libro y el ID usuario.
+En el boton Agregar prestamo nos pedirá el ID del libro (este debe ser un id existente en la base de datos libro) el ID usuario(este debe ser un id existente en la base de datos usuario) y la fecha del prestamo, al guardar en automatico el libro que se presto aparecera en la base de datos libro como Disponible: false(indicando que no esta disponible)
+Por lo cual, cuando le demos el boton editar, nos aparecera una vista donde ponemos la fecha de su devolucion, al agregar la fecha devolucion en automatico aparecera ese libro como true(Disponible para volver a prestar)
+
+esos datos se quedan para que sea el historial de prestamos, puedes eliminarlos, si quieres eliminar el libro como tal, este tambíen se borrara de las veces que se ocupo en la base de datos prestamo.
+
+En navbar tenemos cerrar sesión que simplemente vuelve a la ruta localhost:8080
+
+El proyecto cuenta con service, repository, entity y controller
+
+En el entity Libro se muestra OneToMany indica que un libro puede tener varios prestamos
+En el entity Prestamo se muestra ManyToOne indica que un dato de prestamo puede llegar a tener varios usuarios o libros.
+
+ 
+
+
+
+ 
